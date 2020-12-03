@@ -15,9 +15,4 @@ public class GreetingController {
 		return new Greeting(counter.incrementAndGet(), String.format(template, name));
 	}
 
-	@RequestMapping(value = "/getID", method = RequestMethod.GET)
-	public void getDemo(){
-
-	}
-
 }

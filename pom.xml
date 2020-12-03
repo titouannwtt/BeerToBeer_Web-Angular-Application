@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>fr.esiea</groupId>
-	<artifactId>rest-service</artifactId>
+	<artifactId>bearToBear</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>rest-service</name>
+	<name>bearToBear</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
