@@ -1,39 +1,47 @@
-package fr.esiea.restservice;
+package fr.esiea;
 
 public class Beer {
+  private String name;
 
+  private String alcool;
 
-  private final long id;
-  private final String nom;
-  private final String description;
-  private int nbVote;
+  private String nbvote;
 
-  public Beer(long id, String nom, String description, int nbVote) {
-    this.id = id;
-    this.nom = nom;
-    this.description = description;
-    this.nbVote = nbVote;
+  public Beer() {
+    super();
+  }
+  public Beer(String name, String alcool, String nbvote) {
+    super();
+    this.name = name;
+    this.alcool = alcool;
+    this.nbvote = nbvote;
   }
 
-  public String getDescription() {
-    return description;
+  public String getName() {
+    return name;
   }
 
-  public int getNbVote() {
-    return nbVote;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public long getId() {
-    return id;
+  public String getAlcool() {
+    return alcool;
   }
 
-  public String getNom() {
-    return nom;
+  public void setAlcool(String alcool) {
+    this.alcool = alcool;
   }
 
-  public void setNbVote(){
-    nbVote++;
+  public String getNbVote() {
+    return nbvote;
   }
+
+  public void setNbVote(String nbVote) {
+    this.nbvote = nbvote;
+  }
+
 
 
 }
+

@@ -1,4 +1,4 @@
-package fr.esiea.service;
+package fr.esiea;
 
 import java.io.FileInputStream;
 
@@ -15,12 +15,12 @@ public class FirebaseInitialize {
   @PostConstruct
   public void initialize() {
     try {
-      FileInputStream serviceAccount =
+      FileInputStream ServiceAccount =
         new FileInputStream("./ServiceAccount.json");
 
       FirebaseOptions options = new FirebaseOptions.Builder()
-        .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-        .setDatabaseUrl("https://nuitinfo-4e97f-default-rtdb.firebaseio.com/")
+        .setCredentials(GoogleCredentials.fromStream(ServiceAccount))
+        .setDatabaseUrl("https://nuitinfo-4e97f-default-rtdb.firebaseio.com\"")
         .build();
 
       FirebaseApp.initializeApp(options);

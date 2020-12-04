@@ -1,5 +1,7 @@
 package fr.esiea.restservice;
 
+import fr.esiea.Beer;
+
 public class User {
 
 
@@ -27,7 +29,7 @@ public class User {
   }
 
   public void voteBeer(Beer b){
-    b.setNbVote();
+    b.setNbVote("1");
   }
 
 }
