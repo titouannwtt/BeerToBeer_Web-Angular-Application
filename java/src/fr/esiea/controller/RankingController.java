@@ -1,4 +1,4 @@
-package fr.esiea.restservice;
+package fr.esiea.controller;
 
 import fr.esiea.model.Ranking;
 import org.springframework.web.bind.annotation.GetMapping;

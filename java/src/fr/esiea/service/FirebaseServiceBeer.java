@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.concurrent.ExecutionException;
 
   @Service
-  public class FirebaseService {
+  public class FirebaseServiceBeer {
     public String deleteBeer;
 
     public String saveBeerDetails(Beer beer) throws ExecutionException, InterruptedException {
