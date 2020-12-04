@@ -1,6 +1,6 @@
-package fr.esiea.restservice;
+package fr.esiea.model;
 
-import fr.esiea.Beer;
+import fr.esiea.model.Beer;
 
 public class User {
 

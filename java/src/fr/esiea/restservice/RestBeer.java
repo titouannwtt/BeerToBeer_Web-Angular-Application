@@ -1,6 +1,6 @@
 package fr.esiea.restservice;
 
-import fr.esiea.Beer;
+import fr.esiea.model.Beer;
 import fr.esiea.service.FirebaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

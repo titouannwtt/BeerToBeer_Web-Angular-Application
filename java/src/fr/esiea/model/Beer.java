@@ -1,4 +1,4 @@
-package fr.esiea;
+package fr.esiea.model;
 
 public class Beer {
   private String name;
