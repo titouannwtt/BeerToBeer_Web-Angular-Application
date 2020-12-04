@@ -2,28 +2,50 @@
   <button mat-mini-fab   [matMenuTriggerFor]="menu" aria-label="Example icon button with a menu icon" style="margin-right: 10px">
     <mat-icon>menu</mat-icon>
   </button>
-
   <mat-menu #menu="matMenu">
     <button mat-menu-item (click)="toggleAccueil()">Accueil</button>
     <button mat-menu-item (click)="toggleFormulaire()">Formulaire</button>
   </mat-menu>
-
   <span>Binouze Store</span>
 </mat-toolbar>
 
 <div class="content">
+  <div class="amongUs">
+    <img src="../assets/Bleu.png" (click)="script()" width="20%" height="10%" id="" >
+    <br>
+    <img src="../assets/Jaune.png" width="20%" height="10%" >
+    <br>
+    <img src="../assets/Marron.png" width="20%" height="10%" >
+    <br>
+    <img src="../assets/Noir.png" width="20%" height="10%" >
+    <br>
+    <img src="../assets/Rouge.png" width="20%" height="10%" >
+    <br>
+    <img src="../assets/Rose.png" width="20%" height="10%" >
+    <br>
+    <img src="../assets/Vert.png" width="20%" height="10%" >
+    <br>
+    <img src="../assets/Vert_Clair.png" width="20%" height="10%" >
 
+
+  </div>
 
 
 
   <body class="componentHolder">
-    <img src="../assets/logo.png" class="logo">
+    <img src="../assets/logo.png" class="logo" id="trap" (click)="script(trap)">
     <h1 class="quote">« Ne cherchez plus nous avons déjà classé les bière pour vos prochaine soirée »</h1>
+    <p class="secret">Oh petit malin veux tu voir ce qu'il ce câche dans la vent ?</p>
+    <p class="secret" (click)="toggleVent()">Oui !!!!</p>
+    <img src="../assets/trapClose.png" width="20%" height="20%">
     <ng-container *ngIf="showAccueil">
       <app-beerLeaderBoard class="beerLeaderBoard"></app-beerLeaderBoard>
     </ng-container>
     <ng-container *ngIf="showFormulaire">
     <app-beer-form></app-beer-form>
     </ng-container>
+
+  <br><br>
   </body>
+
 </div>

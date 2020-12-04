@@ -27,6 +27,7 @@ import { BeerFormComponent } from './beer-form/beer-form.component'
     BeerFormComponent
   ],
   imports: [
+
     HttpClientModule,
     MatDividerModule,
     ReactiveFormsModule,

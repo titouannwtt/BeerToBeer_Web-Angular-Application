@@ -1,21 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { RestApiService } from "../shared/rest-api.service";
+import { Router } from '@angular/router';
 
-export interface Beer {
-  name: string;
-  position: number;
-  percent: number;
-  price: number;
+
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+
+export interface Biere {
+  items: Array<{
+    name: string;
+    alcool: String;
+    nbVote: String;
+  }>;
 }
-
-const Beer_Data: Beer[] = [
-  {name: 'kronenbourg', position: 1, percent: 6, price: 3},
-  {name: 'kronenbourg', position: 1, percent: 6, price: 3},
-  {name: 'kronenbourg', position: 1, percent: 6, price: 3},
-  {name: 'kronenbourg', position: 1, percent: 6, price: 3},
-  {name: 'kronenbourg', position: 1, percent: 6, price: 3},
-  {name: 'kronenbourg', position: 1, percent: 6, price: 3},
-  {name: 'kronenbourg', position: 1, percent: 6, price: 3},
-];
 
 
 @Component({
@@ -23,8 +20,39 @@ const Beer_Data: Beer[] = [
   templateUrl: './beerLeaderBoard.component.html',
   styleUrls: ['./beerLeaderBoard.component.css']
 })
-export class beerLeaderBoardComponent {
-  title = 'projetBearOrNotToBear';
-  displayedColumns: string[] = ['position', 'name', 'percent', 'price'];
-  dataSource = Beer_Data;
+
+
+
+export class beerLeaderBoardComponent implements OnInit {
+
+  const optionRequete = {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin':'*',
+        'mon-entete-personnalise':'maValeur'
+      })
+    };
+
+
+
+  beerList: Biere[];
+  private beerListUrl= 'https://apiweb.cactus-industries.fr/AllBeers';
+
+  constructor(private httpClient: HttpClient) {
+
+    }
+
+  ngOnInit() {
+
+    this.httpClient.get(this.beerListUrl)
+    .subscribe(BeerResponse => {
+                    this.beerList = BeerResponse.items.map(item => new Beer({
+                                        name: item.name,
+                                        alcool: item.alcool,
+                                        nbVote: item.nbVote
+                                    }));
+                    });
+
+  }
+  dataSource = this.beerList;
 }
+

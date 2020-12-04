@@ -11,7 +11,7 @@ import {retry, catchError} from 'rxjs/operators';
 
 export class RestApiService {
 
-   apiUrl ='cerenity.net'
+   apiUrl ='https://apiweb.cactus-industries.fr/'
 
   constructor(private http: HttpClient) { }
 
@@ -22,14 +22,14 @@ export class RestApiService {
   }
 
   getBiere(): Observable<Biere> {
-    return this.http.get<Biere>(this.apiUrl+'/biere')
+    return this.http.get<Biere>(this.apiUrl+'AllBeers')
     .pipe(
       retry(1),
       catchError(this.handleError)
     )
   }
 
-  createBiere(biere): Observable<Biere> {
+  /*createBiere(biere): Observable<Biere> {
     return this.http.post<Biere>(this.apiUrl + '/biere', JSON.stringify(biere), this.httpOptions)
     .pipe(
       retry(1),
@@ -51,7 +51,7 @@ export class RestApiService {
         retry(1),
         catchError(this.handleError)
       )
-    }
+    }*/
 
   handleError(error) {
     let errorMessage = '';
