@@ -5,6 +5,7 @@ import fr.esiea.service.FirebaseServiceBeer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 @org.springframework.web.bind.annotation.RestController
@@ -14,6 +15,11 @@ public class RestBeer {
 
   @Autowired
   FirebaseServiceBeer firebaseServiceBeer;
+
+  @GetMapping(value = "/AllBeers")
+  public List<Beer> getBeers() throws ExecutionException, InterruptedException {
+    return firebaseServiceBeer.getAllBeers();
+  }
 
   @GetMapping("/getBeerDetails")
   public Beer getExample(@RequestHeader() String name ) throws InterruptedException, ExecutionException {

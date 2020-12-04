@@ -1,14 +1,16 @@
 package fr.esiea.service;
 
 import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.DocumentReference;
-import com.google.cloud.firestore.DocumentSnapshot;
-import com.google.cloud.firestore.Firestore;
-import com.google.cloud.firestore.WriteResult;
+import com.google.api.core.ApiFutures;
+import com.google.cloud.firestore.*;
 import com.google.firebase.cloud.FirestoreClient;
+import com.google.firestore.v1.Document;
 import fr.esiea.model.Beer;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
   @Service
@@ -21,6 +23,23 @@ import java.util.concurrent.ExecutionException;
       return collectionsApiFuture.get().getUpdateTime().toString();
 
     }
+
+    public List<Beer> getAllBeers() throws ExecutionException, InterruptedException {
+      List<Beer> beerList = new ArrayList<Beer>();
+
+      Firestore dbFireStore = FirestoreClient.getFirestore();
+
+      ApiFuture<QuerySnapshot> future = dbFireStore.collection("beers").get();
+
+      List<QueryDocumentSnapshot> documents = future.get().getDocuments();
+      for (QueryDocumentSnapshot document : documents) {
+        System.out.println(document.getId() + " => " + document.toObject(Beer.class));
+        beerList.add(document.toObject(Beer.class));
+      }
+
+      return beerList;
+    }
+
     public Beer getBeerDetails(String name) throws ExecutionException, InterruptedException {
       Firestore dbFireStore = FirestoreClient.getFirestore();
       DocumentReference documentReference = dbFireStore.collection("beers").document(name);
