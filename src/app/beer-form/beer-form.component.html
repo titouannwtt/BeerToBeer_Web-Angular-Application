@@ -1,0 +1,29 @@
+<h1>Quel est votre bière préféré ?</h1>
+
+<mat-divider class="divider"></mat-divider>
+
+<mat-form-field appearance="fill" class="formField">
+  <mat-label>Color</mat-label>
+  <mat-select>
+    <mat-option>Primary</mat-option>
+    <mat-option>Accent</mat-option>
+    <mat-option>Warn</mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+<button mat-raised-button color="primary" class="formButton">Valider</button>
+<button mat-raised-button color="warn" class="formButton"  (click)="toggle()" >vous ne trouvez pas votre bière</button>
+
+<ng-container *ngIf="show">
+  <mat-divider class="divider"></mat-divider>
+  <mat-form-field class="formField">
+    <mat-label>Nom</mat-label>
+    <input matInput type="text">
+    <button mat-button  matSuffix  aria-label="bière" >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <button mat-raised-button color="primary" class="formButton">ajouter</button>
+</ng-container>
+

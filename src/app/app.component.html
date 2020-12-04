@@ -1,6 +1,29 @@
-<mat-toolbar color="blue">
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+<mat-toolbar color="primary">
+  <button mat-mini-fab   [matMenuTriggerFor]="menu" aria-label="Example icon button with a menu icon" style="margin-right: 10px">
     <mat-icon>menu</mat-icon>
   </button>
-  <span>My App</span>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="toggleAccueil()">Accueil</button>
+    <button mat-menu-item (click)="toggleFormulaire()">Formulaire</button>
+  </mat-menu>
+
+  <span>Binouze Store</span>
 </mat-toolbar>
+
+<div class="content">
+
+
+
+
+  <body class="componentHolder">
+    <img src="../assets/logo.png" class="logo">
+    <h1 class="quote">« Ne cherchez plus nous avons déjà classé les bière pour vos prochaine soirée »</h1>
+    <ng-container *ngIf="showAccueil">
+      <app-beerLeaderBoard class="beerLeaderBoard"></app-beerLeaderBoard>
+    </ng-container>
+    <ng-container *ngIf="showFormulaire">
+    <app-beer-form></app-beer-form>
+    </ng-container>
+  </body>
+</div>
