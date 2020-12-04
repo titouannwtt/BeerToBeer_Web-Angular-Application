@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {path: '',pathMatch: 'full', redirectTo: 'AppComponent'},
-  {path: 'leaderBoard', component: beerLeaderBoard},
+  {path: 'leaderBoard', component: beerLeaderBoardComponent},
   {path: 'formComponent', component: BeerFormComponent}
 ];
 
